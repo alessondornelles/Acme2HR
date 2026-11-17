@@ -94,9 +94,8 @@ public class AlocacaoUI {
             System.out.println("--------------------------------");
             System.out.println("Locação: " + alocacao.getId());
             System.out.println("Cliente: " + alocacao.getCliente().getNome());
-            System.out.println("Veículo: " +
-                    alocacao.getFuncionario().getMarca() + " " +
-                    alocacao.getFuncionario().getModelo());
+            System.out.println("Funcionário: " +
+                    alocacao.getFuncionario().getCpf() + " ");
             System.out.println("Dias: " + alocacao.getDias());
             System.out.printf("Valor total: R$ %.2f%n",
                     alocacao.getValorTotal());
@@ -135,12 +134,11 @@ public class AlocacaoUI {
             System.out.println("Cliente: " +
                     alocacao.getCliente().getNome());
 
-            System.out.println("Veículo: " +
-                    alocacao.getFuncionario().getMarca() + " " +
-                    alocacao.getFuncionario().getModelo());
+            System.out.println("Funcionário: " +
+                    alocacao.getFuncionario().getCpf() + " "                   );
 
-            System.out.println("Placa: " +
-                    alocacao.getFuncionario().getPlaca());
+            System.out.println("Nome: " +
+                    alocacao.getFuncionario().getNome());
 
             System.out.println("Quantidade de dias: " +
                     alocacao.getDias());
@@ -173,8 +171,7 @@ public class AlocacaoUI {
                     alocacao.getCliente().getNome());
 
             System.out.println("Veículo: " +
-                    alocacao.getFuncionario().getMarca() + " " +
-                    alocacao.getFuncionario().getModelo());
+                    alocacao.getFuncionario().getCpf() + " ");
 
             System.out.printf("Valor da locação: R$ %.2f%n",
                     alocacao.getValorTotal());
@@ -211,11 +208,10 @@ public class AlocacaoUI {
                     alocacao.getCliente().getNome());
 
             System.out.println("Funcionario: " +
-                    alocacao.getFuncionario().getMarca() + " " +
-                    alocacao.getFuncionario().getModelo());
+                    alocacao.getFuncionario().getCpf() + " " );
 
-            System.out.println("Placa: " +
-                    alocacao.getFuncionario().getPlaca());
+            System.out.println("Nome: " +
+                    alocacao.getFuncionario().getNome());
 
             System.out.println("Quantidade de dias: " +
                     alocacao.getDias());

@@ -5,33 +5,19 @@ import java.math.RoundingMode;
 
 public class FuncionarioPJ extends Funcionario {
 
-    private int cilindradas;
-
     public FuncionarioPJ(
             String id,
-            String placa,
-            String marca,
-            String modelo,
-            int anoFabricacao,
-            BigDecimal valorDiaria,
-            int cilindradas) {
+            String nome,
+            String cpf,
+            BigDecimal salarioBase) {
 
         super(
                 id,
-                placa,
-                marca,
-                modelo,
-                anoFabricacao,
-                valorDiaria
+                nome,
+                cpf,
+                salarioBase
         );
 
-        if (cilindradas <= 0) {
-            throw new IllegalArgumentException(
-                    "As cilindradas devem ser maiores que zero."
-            );
-        }
-
-        this.cilindradas = cilindradas;
     }
 
     @Override
@@ -39,7 +25,7 @@ public class FuncionarioPJ extends Funcionario {
 
         validarDias(dias);
 
-        BigDecimal valorNormal = getValorDiaria()
+        BigDecimal valorNormal = getSalarioBase()
                 .multiply(BigDecimal.valueOf(dias));
 
         BigDecimal desconto = new BigDecimal("0.15");
@@ -49,7 +35,4 @@ public class FuncionarioPJ extends Funcionario {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
-    public int getCilindradas() {
-        return cilindradas;
-    }
 }

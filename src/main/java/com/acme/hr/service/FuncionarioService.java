@@ -17,15 +17,15 @@ public class FuncionarioService {
 
     public void cadastrar(Funcionario funcionario) {
 
-        boolean placaExiste = repository.findAll()
+        boolean nomeExiste = repository.findAll()
                 .stream()
-                .anyMatch(v -> v.getPlaca().equalsIgnoreCase(
-                        funcionario.getPlaca()
+                .anyMatch(v -> v.getNome().equalsIgnoreCase(
+                        funcionario.getNome()
                 ));
 
-        if (placaExiste) {
+        if (nomeExiste) {
             throw new CadastroDuplicadoException(
-                    "Já existe um veículo cadastrado com esta placa."
+                    "Já existe um veículo cadastrado com esta nome."
             );
         }
 

@@ -6,33 +6,19 @@ import java.math.BigDecimal;
 
 public class FuncionarioCLT extends Funcionario {
 
-    private int quantidadePortas;
-
     public FuncionarioCLT(
             String id,
-            String placa,
-            String marca,
-            String modelo,
-            int anoFabricacao,
-            BigDecimal valorDiaria,
-            int quantidadePortas) {
+            String nome,
+            String cpf,
+            BigDecimal salarioBase) {
 
         super(
                 id,
-                placa,
-                marca,
-                modelo,
-                anoFabricacao,
-                valorDiaria
+                nome,
+                cpf,
+                salarioBase
         );
 
-        if (quantidadePortas <= 0) {
-            throw new IllegalArgumentException(
-                    "A quantidade de portas deve ser maior que zero."
-            );
-        }
-
-        this.quantidadePortas = quantidadePortas;
     }
 
     @Override
@@ -40,11 +26,8 @@ public class FuncionarioCLT extends Funcionario {
 
         validarDias(dias);
 
-        return getValorDiaria()
+        return getSalarioBase()
                 .multiply(BigDecimal.valueOf(dias));
     }
 
-    public int getQuantidadePortas() {
-        return quantidadePortas;
-    }
 }

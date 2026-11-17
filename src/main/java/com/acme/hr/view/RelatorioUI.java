@@ -69,14 +69,12 @@ public class RelatorioUI {
         for (Funcionario funcionario : funcionarios) {
 
             System.out.println("--------------------------------");
-            System.out.println("ID: " + funcionario.getId());
-            System.out.println("Placa: " + funcionario.getPlaca());
-            System.out.println("Marca: " + funcionario.getMarca());
-            System.out.println("Modelo: " + funcionario.getModelo());
-            System.out.println("Ano: " + funcionario.getAnoFabricacao());
+            System.out.println("Código: " + funcionario.getId());
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("Marca: " + funcionario.getCpf());
 
             System.out.printf("Diária base: R$ %.2f%n",
-                    funcionario.getValorDiaria());
+                    funcionario.getSalarioBase());
 
             System.out.printf("Diária ajustada: R$ %.2f%n",
                     funcionario.calcularValorAluguel(1));

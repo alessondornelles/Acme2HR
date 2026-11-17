@@ -5,33 +5,19 @@ import java.math.RoundingMode;
 
 public class FuncionarioComissionado extends Funcionario {
 
-    private int capacidadeCargaKg;
-
     public FuncionarioComissionado(
             String id,
-            String placa,
-            String marca,
-            String modelo,
-            int anoFabricacao,
-            BigDecimal valorDiaria,
-            int capacidadeCargaKg) {
+            String nome,
+            String cpf,
+            BigDecimal salarioBase) {
 
         super(
                 id,
-                placa,
-                marca,
-                modelo,
-                anoFabricacao,
-                valorDiaria
+                nome,
+                cpf,
+                salarioBase
         );
 
-        if (capacidadeCargaKg <= 0) {
-            throw new IllegalArgumentException(
-                    "A capacidade de carga deve ser maior que zero."
-            );
-        }
-
-        this.capacidadeCargaKg = capacidadeCargaKg;
     }
 
     @Override
@@ -39,7 +25,7 @@ public class FuncionarioComissionado extends Funcionario {
 
         validarDias(dias);
 
-        BigDecimal valorNormal = getValorDiaria()
+        BigDecimal valorNormal = getSalarioBase()
                 .multiply(BigDecimal.valueOf(dias));
 
         BigDecimal acrescimo = new BigDecimal("0.25");
@@ -49,7 +35,4 @@ public class FuncionarioComissionado extends Funcionario {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
-    public int getCapacidadeCargaKg() {
-        return capacidadeCargaKg;
-    }
 }

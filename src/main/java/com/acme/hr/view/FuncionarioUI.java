@@ -103,14 +103,12 @@ public class FuncionarioUI {
 
         for (Funcionario funcionario : funcionarios) {
 
-            System.out.println("ID: " + funcionario.getId());
-            System.out.println("Placa: " + funcionario.getPlaca());
-            System.out.println("Marca: " + funcionario.getMarca());
-            System.out.println("Modelo: " + funcionario.getModelo());
-            System.out.println("Ano: " + funcionario.getAnoFabricacao());
+            System.out.println("Código: " + funcionario.getId());
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("CPF: " + funcionario.getCpf());
             System.out.printf(
-                    "Diária base: R$ %.2f%n",
-                    funcionario.getValorDiaria()
+                    "Salário base: R$ %.2f%n",
+                    funcionario.getSalarioBase()
             );
 
             System.out.printf(
@@ -132,36 +130,24 @@ public class FuncionarioUI {
         try {
             System.out.println("\n===== CADASTRO DE FUNCIONARIO CLT =====");
 
-            System.out.print("ID: ");
+            System.out.print("Código: ");
             String id = scanner.nextLine();
 
-            System.out.print("Placa: ");
-            String placa = scanner.nextLine();
+            System.out.print("Nome: ");
+            String nome = scanner.nextLine();
 
-            System.out.print("Marca: ");
-            String marca = scanner.nextLine();
-
-            System.out.print("Modelo: ");
-            String modelo = scanner.nextLine();
-
-            System.out.print("Ano de fabricação: ");
-            int ano = Integer.parseInt(scanner.nextLine());
+            System.out.print("CPF: ");
+            String cpf = scanner.nextLine();
 
             System.out.print("Valor da diária: ");
-            BigDecimal diaria =
+            BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
-
-            System.out.print("Quantidade de portas: ");
-            int portas = Integer.parseInt(scanner.nextLine());
 
             FuncionarioCLT funcionario = new FuncionarioCLT(
                     id,
-                    placa,
-                    marca,
-                    modelo,
-                    ano,
-                    diaria,
-                    portas
+                    nome,
+                    cpf,
+                    salarioBase
             );
 
             funcionarioService.cadastrar(funcionario);
@@ -188,36 +174,24 @@ public class FuncionarioUI {
         try {
             System.out.println("\n===== CADASTRO DE FUNCIONARIO PJ =====");
 
-            System.out.print("ID: ");
+            System.out.print("Código: ");
             String id = scanner.nextLine();
 
-            System.out.print("Placa: ");
-            String placa = scanner.nextLine();
+            System.out.print("Nome: ");
+            String nome = scanner.nextLine();
 
-            System.out.print("Marca: ");
-            String marca = scanner.nextLine();
-
-            System.out.print("Modelo: ");
-            String modelo = scanner.nextLine();
-
-            System.out.print("Ano de fabricação: ");
-            int ano = Integer.parseInt(scanner.nextLine());
+            System.out.print("CPF: ");
+            String cpf = scanner.nextLine();
 
             System.out.print("Valor da diária: ");
-            BigDecimal diaria =
+            BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
-
-            System.out.print("Cilindradas: ");
-            int cilindradas = Integer.parseInt(scanner.nextLine());
 
             FuncionarioPJ funcionarioPJ = new FuncionarioPJ(
                     id,
-                    placa,
-                    marca,
-                    modelo,
-                    ano,
-                    diaria,
-                    cilindradas
+                    nome,
+                    cpf,
+                    salarioBase
             );
 
             funcionarioService.cadastrar(funcionarioPJ);
@@ -243,36 +217,24 @@ public class FuncionarioUI {
         try {
             System.out.println("\n--- CADASTRO DE FUNCIONARIO COMISSIONADO ---");
 
-            System.out.print("ID: ");
+            System.out.print("Código: ");
             String id = scanner.nextLine();
 
-            System.out.print("Placa: ");
-            String placa = scanner.nextLine();
+            System.out.print("Nome: ");
+            String nome = scanner.nextLine();
 
-            System.out.print("Marca: ");
-            String marca = scanner.nextLine();
-
-            System.out.print("Modelo: ");
-            String modelo = scanner.nextLine();
-
-            System.out.print("Ano de fabricação: ");
-            int ano = Integer.parseInt(scanner.nextLine());
+            System.out.print("CPF: ");
+            String cpf = scanner.nextLine();
 
             System.out.print("Valor da diária: ");
-            BigDecimal valorDiaria =
+            BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
-
-            System.out.print("Capacidade de carga (kg): ");
-            int capacidade = Integer.parseInt(scanner.nextLine());
 
             FuncionarioComissionado funcionarioComissionado = new FuncionarioComissionado(
                     id,
-                    placa,
-                    marca,
-                    modelo,
-                    ano,
-                    valorDiaria,
-                    capacidade
+                    nome,
+                    cpf,
+                    salarioBase
             );
 
             funcionarioService.cadastrar(funcionarioComissionado);

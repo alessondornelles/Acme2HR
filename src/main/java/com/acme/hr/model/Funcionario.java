@@ -6,55 +6,40 @@ import java.time.Year;
 public abstract class Funcionario {
 
     private String id;
-    private String placa;
-    private String marca;
-    private String modelo;
-    private int anoFabricacao;
-    private BigDecimal valorDiaria;
+    private String nome;
+    private String cpf;
+    private BigDecimal salarioBase;
     private boolean disponivel;
 
     public Funcionario(
             String id,
-            String placa,
-            String marca,
-            String modelo,
-            int anoFabricacao,
-            BigDecimal valorDiaria) {
+            String nome,
+            String cpf,
+            BigDecimal salarioBase
+    ) {
 
         if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("ID inválido.");
         }
 
-        if (placa == null || placa.isBlank()) {
-            throw new IllegalArgumentException("Placa inválida.");
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome inválido.");
         }
 
-        if (marca == null || marca.isBlank()) {
-            throw new IllegalArgumentException("Marca inválida.");
+        if (cpf == null || cpf.isBlank()) {
+            throw new IllegalArgumentException("CPF inválido.");
         }
 
-        if (modelo == null || modelo.isBlank()) {
-            throw new IllegalArgumentException("Modelo inválido.");
-        }
-
-        if (anoFabricacao < 1886 ||
-                anoFabricacao > Year.now().getValue()) {
-            throw new IllegalArgumentException(
-                    "Ano de fabricação inválido.");
-        }
-
-        if (valorDiaria == null ||
-                valorDiaria.compareTo(BigDecimal.ZERO) <= 0) {
+        if (salarioBase == null ||
+                salarioBase.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException(
                     "O valor da diária deve ser maior que zero.");
         }
 
         this.id = id;
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anoFabricacao = anoFabricacao;
-        this.valorDiaria = valorDiaria;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.salarioBase = salarioBase;
         this.disponivel = true;
     }
 
@@ -71,24 +56,16 @@ public abstract class Funcionario {
         return id;
     }
 
-    public String getPlaca() {
-        return placa;
+    public String getNome() {
+        return nome;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getCpf() {
+        return cpf;
     }
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public int getAnoFabricacao() {
-        return anoFabricacao;
-    }
-
-    public BigDecimal getValorDiaria() {
-        return valorDiaria;
+    public BigDecimal getSalarioBase() {
+        return salarioBase;
     }
 
     public boolean isDisponivel() {
