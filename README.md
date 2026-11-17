@@ -63,3 +63,6 @@ Como o projeto está em desenvolvimento/não foi finalizado, as opções dispon�
 * cadastro de alocações (ex: alocação de um Funcionário CLT para um projeto de 40 horas/semanais; ou alocação de um Funcionário PJ para um projeto de Outsourcing; ou alocação de um Funcionário Comissionado para um projeto de Vendas B2B)
 
 
+OBS: 
+A primeira alternativa de desenvolvimento consta no github: https://github.com/alessondornelles/AcmeHR
+Entretanto, surgiu a idéia de reutilizar um projeto anterior (vide TDE-13), e a primeira alternativa foi descartada.
