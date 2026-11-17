@@ -107,14 +107,10 @@ public class FuncionarioUI {
             System.out.println("Nome: " + funcionario.getNome());
             System.out.println("CPF: " + funcionario.getCpf());
             System.out.printf(
-                    "Salário base: R$ %.2f%n",
+                    "Salário Base: R$ %.2f%n",
                     funcionario.getSalarioBase()
             );
 
-            System.out.printf(
-                    "Diária com ajuste: R$ %.2f%n",
-                    funcionario.calcularValorAluguel(1)
-            );
             System.out.println(
                     "Disponível: " +
                             (funcionario.isDisponivel() ? "Sim" : "Não")
@@ -139,7 +135,7 @@ public class FuncionarioUI {
             System.out.print("CPF: ");
             String cpf = scanner.nextLine();
 
-            System.out.print("Valor da diária: ");
+            System.out.print("Salário base: ");
             BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
 
@@ -183,7 +179,7 @@ public class FuncionarioUI {
             System.out.print("CPF: ");
             String cpf = scanner.nextLine();
 
-            System.out.print("Valor da diária: ");
+            System.out.print("Salário Base: ");
             BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
 
@@ -226,7 +222,7 @@ public class FuncionarioUI {
             System.out.print("CPF: ");
             String cpf = scanner.nextLine();
 
-            System.out.print("Valor da diária: ");
+            System.out.print("Salário Base: ");
             BigDecimal salarioBase =
                     new BigDecimal(scanner.nextLine().replace(",", "."));
 

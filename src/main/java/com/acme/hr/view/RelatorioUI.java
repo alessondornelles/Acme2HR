@@ -7,20 +7,20 @@ import java.util.Scanner;
 import com.acme.hr.model.Funcionario;
 
 import com.acme.hr.service.FuncionarioService;
-import com.acme.hr.service.ClienteService;
+import com.acme.hr.service.ProjetoService;
 import com.acme.hr.service.AlocacaoService;
 
 
 public class RelatorioUI {
 
     private final FuncionarioService funcionarioService;
-    private final ClienteService clienteService;
+    private final ProjetoService clienteService;
     private final AlocacaoService locacaoService;
     private final Scanner scanner;
 
     public RelatorioUI(
             FuncionarioService funcionarioService,
-            ClienteService clienteService,
+            ProjetoService clienteService,
             AlocacaoService locacaoService,
             Scanner scanner) {
 

@@ -26,14 +26,16 @@ public abstract class Funcionario {
             throw new IllegalArgumentException("Nome inválido.");
         }
 
-        if (cpf == null || cpf.isBlank()) {
-            throw new IllegalArgumentException("CPF inválido.");
+        if (cpf == null ||
+                !cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")) {
+            throw new IllegalArgumentException(
+                    "CPF inválido. Utilize o formato 000.000.000-00.");
         }
 
         if (salarioBase == null ||
                 salarioBase.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException(
-                    "O valor da diária deve ser maior que zero.");
+                    "O salário base deve ser maior que zero.");
         }
 
         this.id = id;
@@ -75,7 +77,7 @@ public abstract class Funcionario {
     public void alugar() {
         if (!disponivel) {
             throw new IllegalStateException(
-                    "O veículo já está alugado.");
+                    "O funcionário já está alocado.");
         }
 
         disponivel = false;
@@ -84,7 +86,7 @@ public abstract class Funcionario {
     public void devolver() {
         if (disponivel) {
             throw new IllegalStateException(
-                    "O veículo já está disponível.");
+                    "O funcionário já está disponível.");
         }
 
         disponivel = true;

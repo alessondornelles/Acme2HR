@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 import com.acme.hr.view.MenuPrincipal;
 
-import com.acme.hr.repository.FuncionarioRepositoryMemoria;
+import com.acme.hr.repository.FuncionarioRepository;
 import com.acme.hr.service.FuncionarioService;
 import com.acme.hr.view.FuncionarioUI;
 
-import com.acme.hr.repository.ClienteRepositoryMemoria;
-import com.acme.hr.service.ClienteService;
-import com.acme.hr.view.ClienteUI;
+import com.acme.hr.repository.ProjetoRepository;
+import com.acme.hr.service.ProjetoService;
+import com.acme.hr.view.ProjetoUI;
 
-import com.acme.hr.repository.AlocacaoRepositoryMemoria;
+import com.acme.hr.repository.AlocacaoRepository;
 import com.acme.hr.service.AlocacaoService;
 import com.acme.hr.view.AlocacaoUI;
 
@@ -28,14 +28,14 @@ public class Main {
         // Repositórios
         // ----------------------------------------
 
-        FuncionarioRepositoryMemoria funcionarioRepository =
-                new FuncionarioRepositoryMemoria();
+        FuncionarioRepository funcionarioRepository =
+                new FuncionarioRepository();
 
-        ClienteRepositoryMemoria clienteRepository =
-                new ClienteRepositoryMemoria();
+        ProjetoRepository clienteRepository =
+                new ProjetoRepository();
 
-        AlocacaoRepositoryMemoria alocacaoRepository =
-                new AlocacaoRepositoryMemoria();
+        AlocacaoRepository alocacaoRepository =
+                new AlocacaoRepository();
 
         // ----------------------------------------
         // Serviços
@@ -44,8 +44,8 @@ public class Main {
         FuncionarioService funcionarioService =
                 new FuncionarioService(funcionarioRepository);
 
-        ClienteService clienteService =
-                new ClienteService(clienteRepository);
+        ProjetoService clienteService =
+                new ProjetoService(clienteRepository);
 
         AlocacaoService alocacaoService =
                 new AlocacaoService(
@@ -63,8 +63,8 @@ public class Main {
         FuncionarioUI funcionarioUI =
                 new FuncionarioUI(funcionarioService, scanner);
 
-        ClienteUI clienteUI =
-                new ClienteUI(clienteService, scanner);
+        ProjetoUI clienteUI =
+                new ProjetoUI(clienteService, scanner);
 
         AlocacaoUI alocacaoUI =
                 new AlocacaoUI(alocacaoService, scanner);

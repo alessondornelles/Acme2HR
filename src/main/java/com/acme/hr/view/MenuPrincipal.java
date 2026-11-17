@@ -2,29 +2,24 @@ package com.acme.hr.view;
 
 import java.util.Scanner;
 
-import com.acme.hr.view.FuncionarioUI;
-import com.acme.hr.view.ClienteUI;
-import com.acme.hr.view.AlocacaoUI;
-import com.acme.hr.view.RelatorioUI;
-
 public class MenuPrincipal {
 
     private final Scanner scanner;
     private final FuncionarioUI funcionarioUI;
-    private final ClienteUI clienteUI;
+    private final ProjetoUI projetoUI;
     private final AlocacaoUI alocacaoUI;
     private final RelatorioUI relatorioUI;
 
     public MenuPrincipal(
             Scanner scanner,
             FuncionarioUI funcionarioUI,
-            ClienteUI clienteUI,
+            ProjetoUI projetoUI,
             AlocacaoUI alocacaoUI,
             RelatorioUI relatorioUI) {
 
         this.scanner = scanner;
         this.funcionarioUI = funcionarioUI;
-        this.clienteUI = clienteUI;
+        this.projetoUI = projetoUI;
         this.alocacaoUI = alocacaoUI;
         this.relatorioUI = relatorioUI;
     }
@@ -38,7 +33,7 @@ public class MenuPrincipal {
             System.out.println("     ACME HR");
             System.out.println("================================");
             System.out.println("1 - Gerenciar funcionários");
-            System.out.println("2 - Gerenciar clientes");
+            System.out.println("2 - Gerenciar projetos");
             System.out.println("3 - Gerenciar alocações");
             System.out.println("4 - Relatórios");
             System.out.println("0 - Sair");
@@ -57,7 +52,7 @@ public class MenuPrincipal {
                     funcionarioUI.exibirMenu();
                     break;
                 case 2:
-                    clienteUI.exibirMenu();
+                    projetoUI.exibirMenu();
                     break;
                 case 3:
                     alocacaoUI.exibirMenu();

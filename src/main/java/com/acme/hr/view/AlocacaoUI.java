@@ -24,12 +24,12 @@ public class AlocacaoUI {
 
         do {
             System.out.println("\n================================");
-            System.out.println("     GERENCIAR LOCAÇÕES");
+            System.out.println("     GERENCIAR ALOCAÇÕES");
             System.out.println("================================");
-            System.out.println("1 - Registrar locação");
-            System.out.println("2 - Listar locações ativas");
+            System.out.println("1 - Registrar alocação");
+            System.out.println("2 - Listar alocações ativas");
             System.out.println("3 - Consultar histórico");
-            System.out.println("4 - Devolver funcionário");
+            System.out.println("4 - Liberar funcionário");
             System.out.println("0 - Voltar");
             System.out.println("================================");
             System.out.print("Escolha uma opção: ");
@@ -69,15 +69,15 @@ public class AlocacaoUI {
     private void registrarAlocacao() {
 
         try {
-            System.out.println("\n--- REGISTRAR LOCAÇÃO ---");
+            System.out.println("\n--- REGISTRAR ALOCAÇÃO ---");
 
             System.out.print("ID da locação: ");
             String id = scanner.nextLine();
 
-            System.out.print("ID do cliente: ");
+            System.out.print("ID do projeto: ");
             String clienteId = scanner.nextLine();
 
-            System.out.print("ID do veículo: ");
+            System.out.print("ID do funcionário: ");
             String veiculoId = scanner.nextLine();
 
             System.out.print("Quantidade de dias: ");
@@ -90,10 +90,10 @@ public class AlocacaoUI {
                     dias
             );
 
-            System.out.println("\nLocação registrada com sucesso!");
+            System.out.println("\nAlocação registrada com sucesso!");
             System.out.println("--------------------------------");
-            System.out.println("Locação: " + alocacao.getId());
-            System.out.println("Cliente: " + alocacao.getCliente().getNome());
+            System.out.println("Alocação: " + alocacao.getId());
+            System.out.println("Projeto: " + alocacao.getCliente().getNome());
             System.out.println("Funcionário: " +
                     alocacao.getFuncionario().getCpf() + " ");
             System.out.println("Dias: " + alocacao.getDias());
@@ -120,17 +120,17 @@ public class AlocacaoUI {
 
         List<Alocacao> locacoes = alocacaoService.listarAtivas();
 
-        System.out.println("\n--- LOCAÇÕES ATIVAS ---");
+        System.out.println("\n--- ALOCAÇÕES ATIVAS ---");
 
         if (locacoes.isEmpty()) {
-            System.out.println("Não existem locações ativas.");
+            System.out.println("Não existem alocações ativas.");
             return;
         }
 
         for (Alocacao alocacao : locacoes) {
 
             System.out.println("--------------------------------");
-            System.out.println("ID da locação: " + alocacao.getId());
+            System.out.println("ID da alocação: " + alocacao.getId());
             System.out.println("Cliente: " +
                     alocacao.getCliente().getNome());
 
@@ -155,16 +155,16 @@ public class AlocacaoUI {
     private void devolverFuncionario() {
 
         try {
-            System.out.println("\n--- DEVOLUÇÃO DE VEÍCULO ---");
+            System.out.println("\n--- LIBERAÇÃO DE FUNCIONÁRIO ---");
 
-            System.out.print("Informe o ID da locação: ");
+            System.out.print("Informe o ID da alocação: ");
             String id = scanner.nextLine();
 
             Alocacao alocacao = alocacaoService.buscarPorId(id);
 
             alocacaoService.devolverAlocacao(id);
 
-            System.out.println("\nDevolução realizada com sucesso!");
+            System.out.println("\nLiberação realizada com sucesso!");
             System.out.println("--------------------------------");
             System.out.println("Locação: " + alocacao.getId());
             System.out.println("Cliente: " +
@@ -173,7 +173,7 @@ public class AlocacaoUI {
             System.out.println("Veículo: " +
                     alocacao.getFuncionario().getCpf() + " ");
 
-            System.out.printf("Valor da locação: R$ %.2f%n",
+            System.out.printf("Valor da alocação: R$ %.2f%n",
                     alocacao.getValorTotal());
 
             System.out.println("Situação: ENCERRADA");
@@ -192,17 +192,17 @@ public class AlocacaoUI {
 
         List<Alocacao> locacoes = alocacaoService.listarTodas();
 
-        System.out.println("\n--- HISTÓRICO DE LOCAÇÕES ---");
+        System.out.println("\n--- HISTÓRICO DE ALOCAÇÕES ---");
 
         if (locacoes.isEmpty()) {
-            System.out.println("Não existem locações registradas.");
+            System.out.println("Não existem alocações registradas.");
             return;
         }
 
         for (Alocacao alocacao : locacoes) {
 
             System.out.println("--------------------------------");
-            System.out.println("ID da locação: " + alocacao.getId());
+            System.out.println("ID da alocação: " + alocacao.getId());
 
             System.out.println("Cliente: " +
                     alocacao.getCliente().getNome());

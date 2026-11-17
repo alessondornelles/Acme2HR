@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import com.acme.hr.model.Funcionario;
 
-public class FuncionarioRepositoryMemoria
+public class FuncionarioRepository
         implements Repository<Funcionario, String> {
 
     private final Map<String, Funcionario> funcionarios = new HashMap<>();

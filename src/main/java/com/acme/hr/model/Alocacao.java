@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Alocacao {
 
     private String id;
-    private Cliente cliente;
+    private Projeto cliente;
     private Funcionario funcionario;
     private int dias;
     private BigDecimal valorTotal;
@@ -13,7 +13,7 @@ public class Alocacao {
 
     public Alocacao(
             String id,
-            Cliente cliente,
+            Projeto cliente,
             Funcionario funcionario,
             int dias) {
 
@@ -64,7 +64,7 @@ public class Alocacao {
         return id;
     }
 
-    public Cliente getCliente() {
+    public Projeto getCliente() {
         return cliente;
     }
 

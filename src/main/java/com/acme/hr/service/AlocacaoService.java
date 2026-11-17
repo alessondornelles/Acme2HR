@@ -3,53 +3,53 @@ package com.acme.hr.service;
 import java.util.List;
 
 
-import com.acme.hr.model.Cliente;
+import com.acme.hr.model.Projeto;
 import com.acme.hr.model.Alocacao;
 import com.acme.hr.model.Funcionario;
 import com.acme.hr.exception.EntidadeNaoEncontradaException;
-import com.acme.hr.repository.ClienteRepositoryMemoria;
-import com.acme.hr.repository.AlocacaoRepositoryMemoria;
-import com.acme.hr.repository.FuncionarioRepositoryMemoria;
+import com.acme.hr.repository.ProjetoRepository;
+import com.acme.hr.repository.AlocacaoRepository;
+import com.acme.hr.repository.FuncionarioRepository;
 
 public class AlocacaoService {
 
-    private final ClienteRepositoryMemoria clienteRepository;
-    private final FuncionarioRepositoryMemoria funcionarioRepository;
-    private final AlocacaoRepositoryMemoria alocacaoRepository;
+    private final ProjetoRepository projetoRepository;
+    private final FuncionarioRepository funcionarioRepository;
+    private final AlocacaoRepository alocacaoRepository;
 
     public AlocacaoService(
-            ClienteRepositoryMemoria clienteRepository,
-            FuncionarioRepositoryMemoria funcionarioRepository,
-            AlocacaoRepositoryMemoria alocacaoRepository) {
+            ProjetoRepository projetoRepository,
+            FuncionarioRepository funcionarioRepository,
+            AlocacaoRepository alocacaoRepository) {
 
-        this.clienteRepository = clienteRepository;
+        this.projetoRepository = projetoRepository;
         this.funcionarioRepository = funcionarioRepository;
         this.alocacaoRepository = alocacaoRepository;
     }
 
     public Alocacao criarAlocacao(
             String id,
-            String clienteId,
+            String projetoId,
             String funcionarioId,
             int dias) {
 
-        Cliente cliente = clienteRepository.findById(clienteId)
+        Projeto projeto = projetoRepository.findById(projetoId)
                 .orElseThrow(() ->
                         new EntidadeNaoEncontradaException(
-                                "Cliente não encontrado: " + clienteId
+                                "Projeto não encontrado: " + projetoId
                         )
                 );
 
         Funcionario funcionario = funcionarioRepository.findById(funcionarioId)
                 .orElseThrow(() ->
                         new EntidadeNaoEncontradaException(
-                                "Veículo não encontrado: " + funcionarioId
+                                "Funcionário não encontrado: " + funcionarioId
                         )
                 );
 
         Alocacao alocacao = new Alocacao(
                 id,
-                cliente,
+                projeto,
                 funcionario,
                 dias
         );
@@ -66,7 +66,7 @@ public class AlocacaoService {
         return alocacaoRepository.findById(id)
                 .orElseThrow(() ->
                         new EntidadeNaoEncontradaException(
-                                "Locação não encontrada: " + id
+                                "Alocação não encontrada: " + id
                         )
                 );
     }

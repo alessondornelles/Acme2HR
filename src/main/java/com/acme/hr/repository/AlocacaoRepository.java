@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import com.acme.hr.model.Alocacao;
 
-public class AlocacaoRepositoryMemoria implements Repository<Alocacao, String> {
+public class AlocacaoRepository implements Repository<Alocacao, String> {
 
     private final Map<String, Alocacao> alocacoes = new HashMap<>();
 

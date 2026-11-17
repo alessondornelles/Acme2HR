@@ -1,21 +1,21 @@
 
 package com.acme.hr.view;
 
-import com.acme.hr.model.Cliente;
-import com.acme.hr.service.ClienteService;
+import com.acme.hr.model.Projeto;
+import com.acme.hr.service.ProjetoService;
 import com.acme.hr.exception.CadastroDuplicadoException;
 import com.acme.hr.exception.EntidadeNaoEncontradaException;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class ClienteUI {
+public class ProjetoUI {
 
-    private final ClienteService clienteService;
+    private final ProjetoService projetoService;
     private final Scanner scanner;
 
-    public ClienteUI(ClienteService clienteService, Scanner scanner) {
-        this.clienteService = clienteService;
+    public ProjetoUI(ProjetoService projetoService, Scanner scanner) {
+        this.projetoService = projetoService;
         this.scanner = scanner;
     }
 
@@ -25,12 +25,12 @@ public class ClienteUI {
 
         do {
             System.out.println("\n================================");
-            System.out.println("     GERENCIAR CLIENTES");
+            System.out.println("     GERENCIAR PROJETOS");
             System.out.println("================================");
-            System.out.println("1 - Cadastrar cliente");
-            System.out.println("2 - Listar clientes");
-            System.out.println("3 - Buscar cliente por ID");
-            System.out.println("4 - Remover cliente");
+            System.out.println("1 - Cadastrar projeto");
+            System.out.println("2 - Listar projetos");
+            System.out.println("3 - Buscar projeto por ID");
+            System.out.println("4 - Remover projeto");
             System.out.println("0 - Voltar");
             System.out.println("================================");
             System.out.print("Escolha uma opção: ");
@@ -45,16 +45,16 @@ public class ClienteUI {
 
             switch (opcao) {
                 case 1:
-                    cadastrarCliente();
+                    cadastrarProjeto();
                     break;
                 case 2:
-                    listarClientes();
+                    listarProjetos();
                     break;
                 case 3:
-                    buscarCliente();
+                    buscarProjeto();
                     break;
                 case 4:
-                    removerCliente();
+                    removerProjeto();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");
@@ -66,10 +66,10 @@ public class ClienteUI {
         } while (opcao != 0);
     }
 
-    private void cadastrarCliente() {
+    private void cadastrarProjeto() {
 
         try {
-            System.out.println("\n--- CADASTRO DE CLIENTE ---");
+            System.out.println("\n--- CADASTRO DE PROJETO ---");
 
             System.out.print("ID: ");
             String id = scanner.nextLine();
@@ -77,22 +77,13 @@ public class ClienteUI {
             System.out.print("Nome: ");
             String nome = scanner.nextLine();
 
-            System.out.print("CPF (000.000.000-00): ");
-            String cpf = scanner.nextLine();
-
-            System.out.print("E-mail: ");
-            String email = scanner.nextLine();
-
-            System.out.print("Telefone: ");
-            String telefone = scanner.nextLine();
-
-            Cliente cliente = new Cliente(
-                    id, nome, cpf, email, telefone
+            Projeto projeto = new Projeto(
+                    id, nome
             );
 
-            clienteService.cadastrar(cliente);
+            projetoService.cadastrar(projeto);
 
-            System.out.println("Cliente cadastrado com sucesso!");
+            System.out.println("Projeto cadastrado com sucesso!");
 
         } catch (CadastroDuplicadoException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -102,58 +93,55 @@ public class ClienteUI {
         }
     }
 
-    private void listarClientes() {
+    private void listarProjetos() {
 
-        List<Cliente> clientes = clienteService.listarTodos();
+        List<Projeto> projetos = projetoService.listarTodos();
 
-        System.out.println("\n--- CLIENTES CADASTRADOS ---");
+        System.out.println("\n--- PROJETOS CADASTRADOS ---");
 
-        if (clientes.isEmpty()) {
-            System.out.println("Nenhum cliente cadastrado.");
+        if (projetos.isEmpty()) {
+            System.out.println("Nenhum projeto cadastrado.");
             return;
         }
 
-        for (Cliente cliente : clientes) {
-            exibirCliente(cliente);
+        for (Projeto projeto : projetos) {
+            exibirProjeto(projeto);
         }
     }
 
-    private void buscarCliente() {
+    private void buscarProjeto() {
 
-        System.out.print("Informe o ID do cliente: ");
+        System.out.print("Informe o ID do projeto: ");
         String id = scanner.nextLine();
 
         try {
-            Cliente cliente = clienteService.buscarPorId(id);
-            exibirCliente(cliente);
+            Projeto projeto = projetoService.buscarPorId(id);
+            exibirProjeto(projeto);
 
         } catch (EntidadeNaoEncontradaException e) {
             System.out.println("Erro: " + e.getMessage());
         }
     }
 
-    private void removerCliente() {
+    private void removerProjeto() {
 
-        System.out.print("Informe o ID do cliente: ");
+        System.out.print("Informe o ID do projeto: ");
         String id = scanner.nextLine();
 
         try {
-            clienteService.remover(id);
-            System.out.println("Cliente removido com sucesso!");
+            projetoService.remover(id);
+            System.out.println("Projeto removido com sucesso!");
 
         } catch (EntidadeNaoEncontradaException e) {
             System.out.println("Erro: " + e.getMessage());
         }
     }
 
-    private void exibirCliente(Cliente cliente) {
+    private void exibirProjeto(Projeto projeto) {
 
         System.out.println("--------------------------------");
-        System.out.println("ID: " + cliente.getId());
-        System.out.println("Nome: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpf());
-        System.out.println("E-mail: " + cliente.getEmail());
-        System.out.println("Telefone: " + cliente.getTelefone());
+        System.out.println("ID: " + projeto.getId());
+        System.out.println("Nome: " + projeto.getNome());
         System.out.println("--------------------------------");
     }
 }

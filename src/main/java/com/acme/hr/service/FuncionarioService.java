@@ -5,13 +5,13 @@ import java.util.List;
 import com.acme.hr.model.Funcionario;
 import com.acme.hr.exception.EntidadeNaoEncontradaException;
 import com.acme.hr.exception.CadastroDuplicadoException;
-import com.acme.hr.repository.FuncionarioRepositoryMemoria;
+import com.acme.hr.repository.FuncionarioRepository;
 
 public class FuncionarioService {
 
-    private final FuncionarioRepositoryMemoria repository;
+    private final FuncionarioRepository repository;
 
-    public FuncionarioService(FuncionarioRepositoryMemoria repository) {
+    public FuncionarioService(FuncionarioRepository repository) {
         this.repository = repository;
     }
 
@@ -25,7 +25,7 @@ public class FuncionarioService {
 
         if (nomeExiste) {
             throw new CadastroDuplicadoException(
-                    "Já existe um veículo cadastrado com esta nome."
+                    "Já existe um funcionário cadastrado com esta nome."
             );
         }
 
@@ -47,24 +47,24 @@ public class FuncionarioService {
         return repository.findById(id)
                 .orElseThrow(() ->
                         new EntidadeNaoEncontradaException(
-                                "Veículo não encontrado: " + id
+                                "Funcionário não encontrado: " + id
                         )
                 );
     }
 
     public void remover(String id) {
 
-        // Busca o veículo e verifica se ele existe.
+        // Busca o funcionário e verifica se ele existe.
         Funcionario funcionario = buscarPorId(id);
 
-        // Impede a remoção de veículos alugados.
+        // Impede a remoção de funcionários alugados.
         if (!funcionario.isDisponivel()) {
             throw new IllegalStateException(
-                    "Não é possível remover um veículo que está alugado."
+                    "Não é possível remover um funcionário que está alugado."
             );
         }
 
-        // Remove o veículo.
+        // Remove o funcionário.
         repository.deleteById(id);
     }
 }
