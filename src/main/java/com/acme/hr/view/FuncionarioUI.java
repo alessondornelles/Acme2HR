@@ -31,7 +31,7 @@ public class FuncionarioUI {
 
         do {
             System.out.println("\n================================");
-            System.out.println("    GERENCIAMENTO DE RH");
+            System.out.println("    GERENCIAR FUNCIONARIOS");
             System.out.println("================================");
             System.out.println("1 - Cadastrar funcionario CLT");
             System.out.println("2 - Cadastrar funcionario PJ");
@@ -130,7 +130,7 @@ public class FuncionarioUI {
     private void cadastrarFuncionarioCLT() {
 
         try {
-            System.out.println("\n===== CADASTRO DE CARRO =====");
+            System.out.println("\n===== CADASTRO DE FUNCIONARIO CLT =====");
 
             System.out.print("ID: ");
             String id = scanner.nextLine();
@@ -186,7 +186,7 @@ public class FuncionarioUI {
     private void cadastrarFuncionarioPJ() {
 
         try {
-            System.out.println("\n===== CADASTRO DE MOTO =====");
+            System.out.println("\n===== CADASTRO DE FUNCIONARIO PJ =====");
 
             System.out.print("ID: ");
             String id = scanner.nextLine();
@@ -241,7 +241,7 @@ public class FuncionarioUI {
     private void cadastrarFuncionarioComissionado() {
 
         try {
-            System.out.println("\n--- CADASTRO DE COMISSIONADO ---");
+            System.out.println("\n--- CADASTRO DE FUNCIONARIO COMISSIONADO ---");
 
             System.out.print("ID: ");
             String id = scanner.nextLine();
