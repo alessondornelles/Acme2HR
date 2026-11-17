@@ -71,7 +71,7 @@ public class RelatorioUI {
             System.out.println("--------------------------------");
             System.out.println("Código: " + funcionario.getId());
             System.out.println("Nome: " + funcionario.getNome());
-            System.out.println("Marca: " + funcionario.getCpf());
+            System.out.println("CPF: " + funcionario.getCpf());
 
             System.out.printf("Diária base: R$ %.2f%n",
                     funcionario.getSalarioBase());

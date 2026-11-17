@@ -35,7 +35,7 @@ public class MenuPrincipal {
             System.out.println("1 - Gerenciar funcionários");
             System.out.println("2 - Gerenciar projetos");
             System.out.println("3 - Gerenciar alocações");
-            System.out.println("4 - Relatórios");
+//            System.out.println("4 - Relatórios");
             System.out.println("0 - Sair");
             System.out.println("================================");
             System.out.print("Escolha uma opção: ");
@@ -58,7 +58,7 @@ public class MenuPrincipal {
                     alocacaoUI.exibirMenu();
                     break;
                 case 4:
-                    relatorioUI.exibirMenu();
+                    //relatorioUI.exibirMenu();
                     //relatorioUI.exibirResumo();
                     break;
                 case 0:

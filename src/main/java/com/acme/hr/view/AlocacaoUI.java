@@ -71,7 +71,7 @@ public class AlocacaoUI {
         try {
             System.out.println("\n--- REGISTRAR ALOCAÇÃO ---");
 
-            System.out.print("ID da locação: ");
+            System.out.print("ID da alocação: ");
             String id = scanner.nextLine();
 
             System.out.print("ID do projeto: ");
