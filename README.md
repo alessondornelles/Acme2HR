@@ -33,15 +33,33 @@ O sistema Acme HR foi desenvolvido utilizando arquitetura em camadas, obedecendo
 
 arquivos fonte:
 
-model: Representar as entidades e regras de negócio específicas dos funcionários (ex: Funcionario.java, FuncionarioCLT.java).
-repository: Gerenciar o armazenamento e a recuperação dos funcionários/Camada que lida com os dados (ex: FuncionarioRepository.java).
-service: Implementar as regras de negócio e coordenar as operações/Camada de regras de negócio e controle do fluxo (ex: FuncionarioService.java).
-view: Interagir com o usuário e apresentar os resultados (ex: FuncionarioView.java).
-exception: Representar situações excepcionais do sistema/Tratamento de exceções (ex: FuncionarioNaoEncontradoException.java).
+model: Representar as entidades e regras de negócio específicas dos funcionários (ex: Funcionario.java, FuncionarioCLT.java);
+
+repository: Gerenciar o armazenamento e a recuperação dos funcionários/Camada que lida com os dados (ex: FuncionarioRepository.java);
+
+service: Implementar as regras de negócio e coordenar as operações/Camada de regras de negócio e controle do fluxo (ex: FuncionarioService.java);
+
+view: Interagir com o usuário e apresentar os resultados (ex: FuncionarioView.java);
+
+exception: Representar situações excepcionais do sistema/Tratamento de exceções (ex: FuncionarioNaoEncontradoException.java);
+
 
 arquivos de teste:
 
 terá a mesma estrutura de organização dos arquivos fonte. Fará a diferenciação utilizando o sufixo Test (ex: FuncionarioTest.java).
 
 OBS: o armazenamento de dados será realizado somente em memória de execução.
+
+
+
+//----------
+
+Utilização
+
+Como o projeto está em desenvolvimento/não foi finalizado, as opções disponíveis atualmente são:
+
+* cadastro de funcionários (CLT, PJ, Comissionado)
+* cadastro de projetos (ex: 40 horas, Outsourcing, Vendas B2B)
+* cadastro de alocações (ex: alocação de um Funcionário CLT para um projeto de 40 horas/semanais; ou alocação de um Funcionário PJ para um projeto de Outsourcing; ou alocação de um Funcionário Comissionado para um projeto de Vendas B2B)
+
 
